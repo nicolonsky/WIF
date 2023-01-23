@@ -9,6 +9,7 @@ try {
     const tenantId = core.getInput('tenant_id', { required: true });
     const clientId = core.getInput('client_id', { required: true });
     const audience = core.getInput('audience', { required: false });
+    const scope = core.getInput('scope', { required: false });
     const tokenEndpoint = `https://login.microsoftonline.com/${tenantId}/oauth2/v2.0/token`
 
     core.getIDToken(audience).then(token => {
@@ -17,7 +18,7 @@ try {
         // POST Request to the Azure AD Token Endpoint to exchange GitHub JWT
         // https://learn.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow
         axios.post(tokenEndpoint, {
-            scope: 'https://graph.microsoft.com/.default',
+            scope: scope,
             client_id: clientId,
             client_assertion_type: 'urn:ietf:params:oauth:client-assertion-type:jwt-bearer',
             grant_type: 'client_credentials',

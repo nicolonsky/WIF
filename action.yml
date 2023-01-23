@@ -16,6 +16,10 @@ inputs:
     description: 'OIDC audience'
     required: false
     default: 'api://AzureADTokenExchange'
+  scope:
+    description: 'OIDC Scope'
+    required: false
+    default: 'https://graph.microsoft.com/.default'
 outputs:
   access_token:
     description: 'Azure AD JWT for the assigned application permissions'
