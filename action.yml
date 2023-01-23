@@ -1,0 +1,21 @@
+name: 'GitHub Workload Identity Federation'
+description: 'Acquire access tokens for app registrations with workload identity federation enabled.'
+inputs:
+  tenant_id: 
+    description: 'Azure AD Tenant ID'
+    required: true
+    default: '30204efd-acb7-41a7-9fe9-233cec0556c1'
+  client_id: 
+    description: 'App Registration Client ID'
+    required: true
+    default: '960d282a-7d02-453e-a680-3b4330ed38a7'
+  audience:
+    description: 'OIDC audience'
+    required: false
+    default: 'api://AzureADTokenExchange'
+outputs:
+  access_token:
+    description: 'Azure AD JWT for the assigned application permissions'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'

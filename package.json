@@ -1,0 +1,27 @@
+{
+  "name": "wif",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicolonsky/WIF.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicolonsky/WIF/issues"
+  },
+  "homepage": "https://github.com/nicolonsky/WIF#readme",
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "@actions/github": "^5.1.1",
+    "@vercel/ncc": "^0.36.0",
+    "axios": "^1.2.3",
+    "qs": "^6.11.0"
+  }
+}
