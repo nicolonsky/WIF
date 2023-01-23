@@ -1,5 +1,8 @@
-name: 'GitHub Workload Identity Federation'
+name: 'Azure AD Workload Identity Federation'
 description: 'Acquire access tokens for app registrations with workload identity federation enabled.'
+branding:
+  icon: 'server'
+  color: 'blue'
 inputs:
   tenant_id: 
     description: 'Azure AD Tenant ID'
