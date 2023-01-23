@@ -15,12 +15,11 @@ Tha action requires two mandatory inputs:
 You can also pass the inputs via GitHub repository secrets to the GitHub action.
 
 ```yaml
-  - name: Acquire Workload Identity Access Token
-        uses: ./
-        id: wif
-        with:
-          tenant_id: '30204efd-acb7-41a7-9fe9-233cec0556c1'
-          client_id: '960d282a-7d02-453e-a680-3b4330ed38a7'
+ - name: Azure AD Workload Identity Federation
+   uses: nicolonsky/WIF@v0.0.1
+   with:
+    tenant_id: '30204efd-acb7-41a7-9fe9-233cec0556c1'
+    client_id: '960d282a-7d02-453e-a680-3b4330ed38a7'
 ```
 
 Make sure to add the following permissions to your action:
@@ -31,7 +30,7 @@ permissions:
   contents: read
 ```
 
-The  retrieved access token can then used like this:
+The  retrieved access token can be used like this:
 
 ```powershell
 Install-Module -Name Microsoft.Graph.Authentication
