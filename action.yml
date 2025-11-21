@@ -24,5 +24,5 @@ outputs:
   access_token:
     description: 'Azure AD JWT for the assigned application permissions'
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'dist/index.js'
