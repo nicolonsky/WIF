@@ -1,28 +1,33 @@
-name: 'Azure AD Workload Identity Federation'
-description: 'Acquire access tokens for app registrations with workload identity federation enabled.'
+name: 'Entra ID Workload Identity Federation'
+description: 'Acquire Microsoft Entra ID (Azure AD) access tokens for app registrations using GitHub OIDC workload identity federation - no secrets required.'
+author: 'Nicola Suter'
 branding:
   icon: 'server'
   color: 'blue'
 inputs:
-  tenant_id: 
-    description: 'Azure AD Tenant ID'
+  tenant_id:
+    description: 'Microsoft Entra ID tenant ID'
     required: true
-    default: '30204efd-acb7-41a7-9fe9-233cec0556c1'
-  client_id: 
-    description: 'App Registration Client ID'
+  client_id:
+    description: 'Application (client) ID of the app registration or user-assigned managed identity'
     required: true
-    default: '960d282a-7d02-453e-a680-3b4330ed38a7'
   audience:
-    description: 'OIDC audience'
+    description: 'Audience of the GitHub OIDC token. Must match the audience of the federated credential.'
     required: false
     default: 'api://AzureADTokenExchange'
   scope:
-    description: 'OIDC Scope'
+    description: 'Scope to request, in the form <resource>/.default'
     required: false
     default: 'https://graph.microsoft.com/.default'
+  authority_host:
+    description: 'Entra ID authority host. Override for sovereign clouds, e.g. https://login.microsoftonline.us'
+    required: false
+    default: 'https://login.microsoftonline.com'
 outputs:
   access_token:
-    description: 'Azure AD JWT for the assigned application permissions'
+    description: 'Access token (JWT) carrying the application permissions granted to the app. Masked in logs.'
+  expires_in:
+    description: 'Token lifetime in seconds'
 runs:
   using: 'node24'
   main: 'dist/index.js'

@@ -1,27 +1,40 @@
 {
   "name": "wif",
-  "version": "1.1.0",
-  "description": "",
-  "main": "index.js",
+  "version": "2.0.0",
+  "description": "GitHub Action to acquire Microsoft Entra ID access tokens via workload identity federation (GitHub OIDC).",
+  "type": "module",
+  "main": "dist/index.js",
+  "exports": "./src/main.js",
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "ncc build src/index.js -o dist --license licenses.txt",
+    "test": "node --test",
+    "all": "npm test && npm run build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nicolonsky/WIF.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "github-actions",
+    "entra-id",
+    "azure-ad",
+    "oidc",
+    "workload-identity-federation",
+    "microsoft-graph"
+  ],
+  "author": "Nicola Suter",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/nicolonsky/WIF/issues"
   },
   "homepage": "https://github.com/nicolonsky/WIF#readme",
   "dependencies": {
-    "@actions/core": "^1.10.0",
-    "@actions/github": "^5.1.1",
-    "@vercel/ncc": "^0.36.0",
-    "axios": "^1.2.3",
-    "qs": "^6.11.0"
+    "@actions/core": "^3.0.1"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.45.0"
   }
 }
