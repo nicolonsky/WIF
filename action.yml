@@ -1,5 +1,5 @@
-name: 'Entra ID Workload Identity Federation'
-description: 'Acquire Microsoft Entra ID (Azure AD) access tokens for app registrations using GitHub OIDC workload identity federation - no secrets required.'
+name: 'Entra ID (Azure AD) Workload Identity Federation'
+description: 'Get Microsoft Entra ID (Azure AD) access tokens via GitHub OIDC workload identity federation. No secrets needed.'
 author: 'Nicola Suter'
 branding:
   icon: 'server'
